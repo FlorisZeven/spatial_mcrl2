@@ -1,0 +1,17 @@
+[true*] nu X.(((exists px:Pixel . val(
+            90 <= red(px) && red(px) <= 200 && 
+            90 <= green(px) && green(px) <= 200 &&
+            90 <= blue(px) && blue(px) <= 200) && <report(px)>true)
+) && !mu X.(!((exists px:Pixel . val(
+            90 <= red(px) && red(px) <= 200 && 
+            90 <= green(px) && green(px) <= 200 &&
+            90 <= blue(px) && blue(px) <= 200) && <report(px)>true)
+ || (exists px:Pixel . val(
+            0 <= red(px) && red(px) <= 90 && 
+            0 <= green(px) && green(px) <= 90 &&
+            0 <= blue(px) && blue(px) <= 90) && <report(px)>true)
+) || ((exists px:Pixel . val(
+            90 <= red(px) && red(px) <= 200 && 
+            90 <= green(px) && green(px) <= 200 &&
+            90 <= blue(px) && blue(px) <= 200) && <report(px)>true)
+ && <R>X)))

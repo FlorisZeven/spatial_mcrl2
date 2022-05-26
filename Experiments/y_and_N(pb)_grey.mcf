@@ -1,0 +1,4 @@
+[true*] nu X.((exists px:Pixel . val(120 <= px && px <= 130) && <report(px)>true)
+ && (<R>(exists px:Pixel . val(190 <= px && px <= 200) && <report(px)>true)
+)
+)

@@ -1,0 +1,9 @@
+Guessing input format: PBES in internal format
+Generating parity game...
+Generated 1000 BES equations (93.37% explored)Generated 2000 BES equations (95.42% explored)Generated 3000 BES equations (96.59% explored)Generated 4000 BES equations (97.02% explored)Generated 5000 BES equations (97.31% explored)Generated 6000 BES equations (97.99% explored)Generated 7000 BES equations (98.27% explored)Generated 8000 BES equations (98.79% explored)Generated 9000 BES equations (99.41% explored)
+Number of vertices in the structure graph: 9635
+Warning: the PBES has no counter example information. Did you use the --counter-example option when generating the PBES?
+Solving parity game...
+Extracting evidence...
+false
+Saved counter example in Experiments\64x64\64x64.pbes.evidence.lps

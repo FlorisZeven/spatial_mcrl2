@@ -1,0 +1,4 @@
+[true*] nu X.(exists px:Pixel . val(
+            0 <= red(px) && red(px) <= 10 && 
+            0 <= green(px) && green(px) <= 10 &&
+            0 <= blue(px) && blue(px) <= 10) && <report(px)>true)

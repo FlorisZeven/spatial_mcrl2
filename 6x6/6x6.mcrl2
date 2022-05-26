@@ -1,0 +1,44 @@
+sort
+	Grid = List(List(Pixel));
+	Pixel = struct RGB(
+		    red:Intensity,
+		    green:Intensity,
+		    blue:Intensity
+	    ); 
+	Intensity = Int;
+    
+map
+	image: Grid;
+	start_x, start_y: Nat;
+	size_x,	size_y: Nat;
+    
+eqn image = [
+   [RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0)], 
+   [RGB(255,242,0), RGB(255,174,201), RGB(255,174,201), RGB(255,174,201), RGB(63,72,204), RGB(255,242,0)], 
+   [RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,174,201), RGB(255,242,0)], 
+   [RGB(255,242,0), RGB(255,174,201), RGB(255,174,201), RGB(255,242,0), RGB(255,174,201), RGB(255,242,0)], 
+   [RGB(255,242,0), RGB(255,174,201), RGB(255,174,201), RGB(255,242,0), RGB(255,174,201), RGB(255,242,0)], 
+   [RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0), RGB(255,242,0)]
+];
+    start_x = 1;
+    start_y = 1;
+    size_x = Int2Nat(#(image.0) - 1);
+    size_y = Int2Nat(#(image) - 1);
+act
+    R;
+    report: Pixel;
+proc
+Grid(x:Nat, y: Nat) = 
+    report(image.y.x) . Grid(x,y) 
+    + R . Grid(x,y) 
+    + (x != 0) 		-> R . Grid(Int2Nat(x-1), y)
+    + (x != size_x)	-> R . Grid(Int2Nat(x+1), y)
+    + (y != 0) 		-> R . Grid(x, Int2Nat(y-1))
+    + (y != size_y) -> R . Grid(x, Int2Nat(y+1))
+;
+init
+    allow ({R, report},
+    comm(
+        {}, Grid(start_x, start_y)
+    )
+);
