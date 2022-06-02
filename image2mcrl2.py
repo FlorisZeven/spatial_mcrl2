@@ -102,7 +102,7 @@ def create_mcrl2_specification(imagefile, greyscale):
 def check_image_extension(imagefile):
     extension = imagefile.rsplit('.', 1)[1]
     if extension not in ('png', 'jpg', 'jpeg'):
-         raise argparse.ArgumentTypeError('wrong image format, allowed formats: png, jpg, jpeg') # TODO check this
+         raise argparse.ArgumentTypeError('wrong image format, allowed formats: png, jpg, jpeg')
     return imagefile
 
 # If file is called directly, check arguments

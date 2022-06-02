@@ -1,13 +1,10 @@
-from email.mime import base
-from pickle import TRUE
-import sys
 import argparse
 from PIL import Image
 import timeit
 # other scripts
 import image2mcrl2
 import pbessolve_image
-import slcs2modalmuRGB
+import slcs2modalmu
 
 def check_extension(extension, file): 
     if not file.endswith(extension):
@@ -38,7 +35,7 @@ if __name__ == '__main__':
     start_time = timeit.default_timer() # timing purposes
 
     mcrl2file = image2mcrl2.create_mcrl2_specification(imagefile, greyscale)
-    mcffile = slcs2modalmuRGB.translate_SLCS_formula(slcsfile, greyscale, TRUE) # Additional argument TRUE to ensure the output is recognizable by mcrl2
+    mcffile = slcs2modalmu.translate_SLCS_formula(slcsfile, greyscale, True) # Additional boolean to ensure the output is recognizable by mcrl2
     true_coords = pbessolve_image.do_pbessolve(mcrl2file, mcffile)
 
     print(f'Elapsed time: {timeit.default_timer() - start_time} seconds') # print time elapsed in seconds 
