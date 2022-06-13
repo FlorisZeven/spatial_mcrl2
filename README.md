@@ -1,5 +1,5 @@
 # spatial_mcrl2
-A proof of concept implementation of performing spatial model checking using the mCRL2 toolset. Created for my master thesis 'Spatial Model Checking in mCRL2'. (link will follow)
+A proof of concept implementation of performing spatial model checking using the mCRL2 toolset. Created for my master thesis 'Spatial Model Checking in mCRL2'.
  
 ## Usage 
 `verify_image.py` is the main script that combines the others, but each script can be executed separately in any command window with a Python Interpreter using
@@ -17,7 +17,7 @@ Script `slcs2modalmu.py` translates SLCS formulae to mu-calculus formulae. Its s
 
 ``` 
 <FORM> ::= 
-    <ATOM_PROP>            (atomic proposition, reserved names are below)
+    <ATOM_PRED>            (atomic predicate, reserved names are below)
     | (<FORM>)             (Subformula)
     | ! <FORM>             (NOT operator)
     | N <FORM>             (Near operator)
