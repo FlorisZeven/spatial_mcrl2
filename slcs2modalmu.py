@@ -3,7 +3,7 @@ SLCS2ModalMu
 Converts a SLCS formula to a modal mu-formula
 
 For input arguments, see also the help file invoked by setting the -h flag.
-For more information regarding structure of SLCS formulae, see the documenation in the readme.
+For more information regarding structure of SLCS formulae, see the documentation in the readme.
 '''
 import re
 import argparse

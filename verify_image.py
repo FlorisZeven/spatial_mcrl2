@@ -1,3 +1,11 @@
+'''
+verify_image
+Combines image2mcrl2, slcs2modalmu, pbessolve_iamge in a single script
+
+For input arguments, see also the help file invoked by setting the -h flag.
+For more information regarding the structure of SLCS formulae, see the documentation in the readme.
+'''
+
 import argparse
 from PIL import Image
 import timeit

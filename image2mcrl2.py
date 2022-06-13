@@ -1,12 +1,19 @@
+'''
+image2mcrl2
+Converts an image to an mCRL2 specification
+
+For input arguments, see also the help file invoked by setting the -h flag.
+'''
 import argparse
 import io
 from PIL import Image
 
 GREYSCALE = False # default for optimization monochromatic images
 
+# builds the RGB data structure as mCRL2 string, from image data
 def build_image_grid(imagefile):
     output = io.StringIO() # create new string builder
-    output.write('image = [\n   [') # write start of file
+    output.write('image = [\n   [') # write start of string
 
     im = Image.open(imagefile) # prepare the image
     width, height = im.size
@@ -35,6 +42,7 @@ def build_image_grid(imagefile):
     output.close() # discard the memory buffer
     return result
 
+# builds the .mcrl2 file
 def build_mCRL2_spec(imagefile):
     result = '' 
     result += f'''sort
@@ -102,7 +110,7 @@ def create_mcrl2_specification(imagefile, greyscale):
 def check_image_extension(imagefile):
     extension = imagefile.rsplit('.', 1)[1]
     if extension not in ('png', 'jpg', 'jpeg'):
-         raise argparse.ArgumentTypeError('wrong image format, allowed formats: png, jpg, jpeg')
+         raise argparse.ArgumentTypeError('wrong image format, known allowed formats: png, jpg, jpeg')
     return imagefile
 
 # If file is called directly, check arguments
